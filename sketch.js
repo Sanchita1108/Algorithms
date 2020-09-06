@@ -18,7 +18,18 @@ function draw()
     movingRect.y = World.mouseY;
     drawSprites();
 
-    isTouching();
+   if ( isTouching())
+   {
+    movingRect.shapeColor = "blue";
+    fixedRect.shapeColor = "blue";
+   }
+   else
+   {
+    movingRect.shapeColor = "green";
+    fixedRect.shapeColor = "green";
+
+   }
+   
 }
 
 function isTouching()
@@ -28,13 +39,11 @@ function isTouching()
         && movingRect.y - fixedRect.y < fixedRect.height/2 + movingRect.height/2
         && fixedRect.y - movingRect.y < fixedRect.height/2 + movingRect.height/2) 
     {
-        fixedRect.shapeColor = "red";
-        movingRect.shapeColor = "red";
+        return true;
     }
     else
     {
-        fixedRect.shapeColor = "green";
-        movingRect.shapeColor = "green";
+       return false;
     }
 
 
