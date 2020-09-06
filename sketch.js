@@ -4,6 +4,9 @@ function setup()
 {
     createCanvas(1200,800);
     fixedRect = createSprite(600,400,50,80);
+    gameobject1 = createSprite(100,100,50,80);
+    gameobject1.shapeColor = "yellow";
+    gameobject2 = createSprite(200,100,50,80);
     fixedRect.shapeColor = "green";
 
     movingRect = createSprite(400,200,80,30);
@@ -18,7 +21,7 @@ function draw()
     movingRect.y = World.mouseY;
     drawSprites();
 
-   if ( isTouching())
+   if ( isTouching(fixedRect,gameobject1))
    {
     movingRect.shapeColor = "blue";
     fixedRect.shapeColor = "blue";
@@ -32,12 +35,12 @@ function draw()
    
 }
 
-function isTouching()
+function isTouching(object1, object2)
 {
-    if (movingRect.x - fixedRect.x < fixedRect.width/2 + movingRect.width/2
-        && fixedRect.x - movingRect.x < fixedRect.width/2 + movingRect.width/2
-        && movingRect.y - fixedRect.y < fixedRect.height/2 + movingRect.height/2
-        && fixedRect.y - movingRect.y < fixedRect.height/2 + movingRect.height/2) 
+    if (object1.x - object2.x < object2.width/2 + object1.width/2
+        && object2.x - object1.x < object2.width/2 + object1.width/2
+        && object1.y - object2.y < object2.height/2 + object1.height/2
+        && object2.y - object1.y < object2.height/2 + object1.height/2) 
     {
         return true;
     }
