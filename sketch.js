@@ -24,12 +24,12 @@ function draw()
    if ( isTouching(movingRect,gameobject1))
    {
     movingRect.shapeColor = "blue";
-    fixedRect.shapeColor = "blue";
+    gameobject1.shapeColor = "blue";
    }
    else
    {
     movingRect.shapeColor = "green";
-    fixedRect.shapeColor = "green";
+    gameobject1.shapeColor = "green";
 
    }
    
