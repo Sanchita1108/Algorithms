@@ -21,7 +21,7 @@ function draw()
     movingRect.y = World.mouseY;
     drawSprites();
 
-   if ( isTouching(fixedRect,gameobject1))
+   if ( isTouching(movingRect,gameobject1))
    {
     movingRect.shapeColor = "blue";
     fixedRect.shapeColor = "blue";
